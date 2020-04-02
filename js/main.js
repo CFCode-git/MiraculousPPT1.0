@@ -246,7 +246,7 @@ const Theme = {
     location.reload();
   },
   loadTheme() {
-    let theme = localStorage.theme || "beige";
+    let theme = localStorage.theme || "black";
     let $link = document.createElement("link");
     $link.rel = "styleSheet";
     $link.href = `css/theme/${theme}.css`;
