@@ -1,3 +1,26 @@
+const defaultContent = `
+# 我是一级标题
+我是内容
+
+## 我是二级标题
+我是内容
+
+# 我是一级标题
+我是内容
+
+### 我是三级标题
+我是内容
+
+#### 我是副标题一
+我是内容
+
+## 我是二级标题
+我是内容
+
+##### 我是副标题二
+我是内容
+`;
+
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 const isMain = (str) => /^#{1,2}(?!#)/.test(str);
@@ -159,7 +182,7 @@ const Editor = {
     console.log("Editor init...");
     this.$editInput = $(".editor textarea");
     this.$saveButton = $(".editor .button-save");
-    this.markdown = localStorage.markdown || `# One Slide`;
+    this.markdown = localStorage.markdown || defaultContent;
     this.$slideContainer = $(".slides");
 
     this.bind();
