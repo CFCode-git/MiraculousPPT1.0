@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
 
-    <title>One Slide -- 极简 Markdown PPT</title>
+<head>
+  <meta charset="utf-8" />
 
-    <meta
-      name="description"
-      content="A framework for easily creating beautiful presentations using HTML"
-    />
-    <meta name="author" content="Hakim El Hattab" />
+  <title>Miraculous PPT</title>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML" />
+  <meta name="author" content="Hakim El Hattab" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/reveal.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/monokai.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link
-      rel="stylesheet"
-      href="//at.alicdn.com/t/font_1685730_gfr4xrp1gfm.css"
-    />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/reveal.css" />
 
-    <!-- Printing and PDF exports -->
-    <script>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1685730_h10ff6hcd9m.css" />
+
+  <!-- Printing and PDF exports -->
+  <script>
       // var link = document.createElement("link");
       // link.rel = "stylesheet";
       // link.type = "text/css";
@@ -42,139 +34,147 @@
       //   ("css/print/paper.css");
       // }
       // document.getElementsByTagName("head")[0].appendChild(link);
-    </script>
+  </script>
 
-    <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <div class="control">
-      <span class="iconfont icon-setting"></span>
-    </div>
-    <div class="menu">
-      <span class="iconfont icon-close"></span>
-      <div class="detail">
-        <div class="tab active">
-          <span class="iconfont icon-edit"></span> 内容编辑
+<body>
+  <div class="menu">
+    <header class="header">控制台</header>
+    <main class="main">
+      <div class="zone edit">
+        <div class="header">
+          <span class="iconfont icon-edit"></span>
+          <span>内容编辑</span>
         </div>
-        <div class="tab">
-          <span class="iconfont icon-theme"></span> 主题与特效
-        </div>
-        <div class="tab download">
-          <span class="iconfont icon-download"></span> 下载PDF
-        </div>
-        <div class="tab">
-          <span class="iconfont icon-speech"></span> 演讲者模式
-        </div>
-        <div class="content active">
-          <div class="header">编辑</div>
+        <div class="content">
           <div class="body editor">
             <textarea></textarea>
             <div class="uploader">
               <input type="file" id="img-uploader" accept="image/*" />
-              <label for="img-uploader"
-                >点击上传图片(支持.png、.jpg、.gif，最大2M)</label
-              >
+              <label for="img-uploader">点击此处上传图片(支持.png、.jpg、.gif，最大2M)</label>
             </div>
             <div>
               <button class="button-save">保存</button>
             </div>
           </div>
         </div>
-        <div class="content">
-          <div class="header">主题特效</div>
-          <div class="body theme">
-            <h5>主题</h5>
-            <div class="themes">
-              <figure data-theme="beige">
-                <img src="./img/beige.png" alt="beige" />
-                <figcaption>beige</figcaption>
-              </figure>
-              <figure data-theme="black">
-                <img src="./img/black.png" alt="black" />
-                <figcaption>black</figcaption>
-              </figure>
-              <figure data-theme="blood">
-                <img src="./img/blood.png" alt="blood" />
-                <figcaption>blood</figcaption>
-              </figure>
-              <figure data-theme="league">
-                <img src="./img/league.png" alt="league" />
-                <figcaption>league</figcaption>
-              </figure>
-              <figure data-theme="moon">
-                <img src="./img/moon.png" alt="moon" />
-                <figcaption>moon</figcaption>
-              </figure>
-              <figure data-theme="night">
-                <img src="./img/night.png" alt="night" />
-                <figcaption>night</figcaption>
-              </figure>
-              <figure data-theme="serif">
-                <img src="./img/serif.png" alt="serif" />
-                <figcaption>serif</figcaption>
-              </figure>
-              <figure data-theme="simple">
-                <img src="./img/simple.png" alt="simple" />
-                <figcaption>simple</figcaption>
-              </figure>
-              <figure data-theme="sky">
-                <img src="./img/sky.png" alt="sky" />
-                <figcaption>sky</figcaption>
-              </figure>
-              <figure data-theme="solarized">
-                <img src="./img/solarized.png" alt="solarized" />
-                <figcaption>solarized</figcaption>
-              </figure>
-              <figure data-theme="white">
-                <img src="./img/white.png" alt="white" />
-                <figcaption>white</figcaption>
-              </figure>
-            </div>
-            <h5>转场</h5>
-            <select class="transition">
-              <option value="slide">滑动</option>
-              <option value="fade">淡化</option>
-              <option value="convex">凸出</option>
-              <option value="concave">凹陷</option>
-              <option value="zoom">缩放</option>
-              <option value="none">无</option>
-            </select>
+      </div>
 
-            <h5>对齐</h5>
-            <select class="align">
-              <option value="center">居中</option>
-              <option value="left-top">左上</option>
-            </select>
-          </div>
-        </div>
-        <div class="content">
-          <div class="header">下载</div>
-          <div class="body download">
-            <p>下载PDF</p>
-          </div>
-        </div>
-        <div class="content">
-          <div class="header">演讲者模式</div>
-          <div class="body speech">
-            <p>按下 <strong>S</strong> 键开启演讲者模式。</p>
-          </div>
+      <div class="introduction">
+        <h3>欢迎使用 Miraculous PPT</h3>
+        <ol>
+          <li>"#" 表示1级标题</li>
+          <li>"##" 表示2级标题</li>
+          <li>"###" 表示3级标题</li>
+          <li>"####" ~ "#####" 表示副标题</li>
+          <li>1~2级标题，页面内容左右滚动</li>
+          <li>3级标题，页面内容上下滚动</li>
+          <li>副标题内容不会新增页面</li>
+          <li>编辑完成记得点击保存</li>
+          <li class="strong">按下键盘 "S" 键进入演讲者模式</li>
+        </ol>
+        <div class="buttons">
+          <button class="download">保存为pdf</button>
+          <span class="iconfont icon-close"></span>
         </div>
       </div>
-    </div>
 
-    <div class="reveal">
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides"></div>
-    </div>
+      <div class="zone theme">
+        <div class="header">
+          <span class="iconfont icon-theme"></span>
+          <span>主题与特效</span>
+        </div>
+        <div class="content">
+            <div class="selector">
+              <div class="transition">
+                <h5>转场</h5>
+                <select class="transition-item">
+                  <option value="slide">滑动</option>
+                  <option value="fade">淡化</option>
+                  <option value="convex">凸出</option>
+                  <option value="concave">凹陷</option>
+                  <option value="zoom">缩放</option>
+                  <option value="none">无</option>
+                </select>
+              </div>
+              <div class="align">
+                <h5>对齐</h5>
+                <select class="align-item">
+                  <option value="center">居中</option>
+                  <option value="left-top">左上</option>
+                </select>
+              </div>
+            </div>
+            <div class="themes">
+              <figure data-theme="beige">
+                <figcaption>beige</figcaption>
+                <img src="./img/beige.png" alt="beige" />
+              </figure>
+              <figure data-theme="black">
+                <figcaption>black</figcaption>
+                <img src="./img/black.png" alt="black" />
+              </figure>
+              <figure data-theme="blood">
+                <figcaption>blood</figcaption>
+                <img src="./img/blood.png" alt="blood" />
+              </figure>
+              <figure data-theme="league">
+                <figcaption>league</figcaption>
+                <img src="./img/league.png" alt="league" />
+              </figure>
+              <figure data-theme="moon">
+                <figcaption>moon</figcaption>
+                <img src="./img/moon.png" alt="moon" />
+              </figure>
+              <figure data-theme="night">
+                <figcaption>night</figcaption>
+                <img src="./img/night.png" alt="night" />
+              </figure>
+              <figure data-theme="serif">
+                <figcaption>serif</figcaption>
+                <img src="./img/serif.png" alt="serif" />
+              </figure>
+              <figure data-theme="simple">
+                <figcaption>simple</figcaption>
+                <img src="./img/simple.png" alt="simple" />
+              </figure>
+              <figure data-theme="sky">
+                <figcaption>sky</figcaption>
+                <img src="./img/sky.png" alt="sky" />
+              </figure>
+              <figure data-theme="solarized">
+                <figcaption>solarized</figcaption>
+                <img src="./img/solarized.png" alt="solarized" />
+              </figure>
+              <figure data-theme="white">
+                <figcaption>white</figcaption>
+                <img src="./img/white.png" alt="white" />
+              </figure>
+            </div>
+          </div>
+      </div>
 
-    <!-- 存储服务 -->
-    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.3.1/dist/av-min.js"></script>
-    <!-- 即时通讯服务 -->
-    <script src="//cdn.jsdelivr.net/npm/leancloud-realtime@5.0.0-rc.0/dist/realtime-browser.min.js"></script>
-    <script src="js/reveal.js"></script>
-    <script src="./js/main.js"></script>
-  </body>
+    </main>
+  </div>
+  <div class="control">
+    <span class="iconfont icon-arrow"></span>
+  </div>
+
+  <div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides"></div>
+  </div>
+
+  <!-- 存储服务 -->
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.3.1/dist/av-min.js"></script>
+  <!-- 即时通讯服务 -->
+  <script src="//cdn.jsdelivr.net/npm/leancloud-realtime@5.0.0-rc.0/dist/realtime-browser.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
 </html>

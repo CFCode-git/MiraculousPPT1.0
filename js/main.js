@@ -1,12 +1,12 @@
-const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
-const isMain = str => /^#{1,2}(?!#)/.test(str);
-const isSub = str => /^#{3}(?!#)/.test(str);
-const convert = raw => {
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+const isMain = (str) => /^#{1,2}(?!#)/.test(str);
+const isSub = (str) => /^#{3}(?!#)/.test(str);
+const convert = (raw) => {
   let arr = raw
     .split(/\n(?=\s*#{1,3}[^#])/)
-    .filter(s => s != "")
-    .map(s => s.trim());
+    .filter((s) => s != "")
+    .map((s) => s.trim());
   let html = "";
   for (let i = 0; i < arr.length; i++) {
     if (arr[i + 1] !== undefined) {
@@ -73,32 +73,26 @@ const convert = raw => {
 const Menu = {
   init() {
     console.log("Menu init....");
-    this.$settingIcon = $(".control .icon-setting");
+    this.$arrowIcon = $(".control .icon-arrow");
     this.$menu = $(".menu");
     this.$closeIcon = $(".menu .icon-close");
-    this.$$tabs = $$(".menu .tab");
     this.$$contents = $$(".menu .content");
-
     this.bind();
   },
   bind() {
-    this.$settingIcon.onclick = () => {
-      this.$menu.classList.add("open");
+    this.$arrowIcon.onclick = () => {
+      this.$menu.style.display = "block";
+      setTimeout(() => {
+        this.$menu.classList.add("open");
+      }, 0);
     };
     this.$closeIcon.onclick = () => {
       this.$menu.classList.remove("open");
+      setTimeout(() => {
+        this.$menu.style.display = "none";
+      }, 400);
     };
-    this.$$tabs.forEach(
-      $tab =>
-        ($tab.onclick = () => {
-          this.$$tabs.forEach($node => $node.classList.remove("active"));
-          $tab.classList.add("active");
-          let index = [...this.$$tabs].indexOf($tab);
-          this.$$contents.forEach($node => $node.classList.remove("active"));
-          this.$$contents[index].classList.add("active");
-        })
-    );
-  }
+  },
 };
 
 const ImgUploader = {
@@ -109,14 +103,14 @@ const ImgUploader = {
     AV.init({
       appId: "ggCn42SANPf8eVbPRIFxkPSx-gzGzoHsz",
       appKey: "21waN9KT6nAq906ukSa1rkrK",
-      serverURLs: "https://ggcn42sa.lc-cn-n1-shared.com"
+      serverURLs: "https://ggcn42sa.lc-cn-n1-shared.com",
     });
 
     this.bind();
   },
   bind() {
     let self = this;
-    this.$fileInput.onchange = function() {
+    this.$fileInput.onchange = function () {
       if (this.files.length > 0) {
         let localFile = this.files[0];
         console.log(localFile);
@@ -132,15 +126,15 @@ const ImgUploader = {
             keepFileName: true,
             onprogress(progress) {
               this.insertText(`![上传中，进度${progress.percent}%]()`);
-            }
+            },
           })
-          .then(file => {
+          .then((file) => {
             console.log("文件保存完成");
             console.log(file);
-            let text = `![${file.attributes.name}](${file.attributes.url}?imageView2/0/w/800/h/400)`;
+            let text = `![${file.attributes.name}](${file.attributes.url}?imageView2/0/w/600/h/300)`;
             self.insertText(text);
           })
-          .catch(err => console.log(err));
+          .catch((err) => console.log(err));
       }
     };
   },
@@ -157,7 +151,7 @@ const ImgUploader = {
     )}${text} ${oldText.substring(end)}`;
     $textarea.focus();
     $textarea.setSelectionRange(start, start + text.length);
-  }
+  },
 };
 
 const Editor = {
@@ -193,30 +187,30 @@ const Editor = {
       dependencies: [
         {
           src: "plugin/markdown/marked.js",
-          condition: function() {
+          condition: function () {
             return !!document.querySelector("[data-markdown]");
-          }
+          },
         },
         {
           src: "plugin/markdown/markdown.js",
-          condition: function() {
+          condition: function () {
             return !!document.querySelector("[data-markdown]");
-          }
+          },
         },
         { src: "plugin/highlight/highlight.js" },
         { src: "plugin/search/search.js", async: true },
         { src: "plugin/zoom-js/zoom.js", async: true },
-        { src: "plugin/notes/notes.js", async: true }
-      ]
+        { src: "plugin/notes/notes.js", async: true },
+      ],
     });
-  }
+  },
 };
 
 const Theme = {
   init() {
     this.$$figures = $$(".themes figure");
-    this.$transition = $(".theme .transition");
-    this.$align = $(".theme .align");
+    this.$transition = $(".theme .transition .transition-item");
+    this.$align = $(".theme .align .align-item");
     this.$reveal = $(".reveal");
 
     this.bind();
@@ -225,18 +219,18 @@ const Theme = {
 
   bind() {
     this.$$figures.forEach(
-      $figure =>
+      ($figure) =>
         ($figure.onclick = () => {
-          this.$$figures.forEach($item => $item.classList.remove("select"));
+          this.$$figures.forEach(($item) => $item.classList.remove("select"));
           $figure.classList.add("select");
           this.setTheme($figure.dataset.theme);
         })
     );
-    this.$transition.onchange = function() {
+    this.$transition.onchange = function () {
       localStorage.transition = this.value;
       location.reload();
     };
-    this.$align.onchange = function() {
+    this.$align.onchange = function () {
       localStorage.align = this.value;
       location.reload();
     };
@@ -254,19 +248,19 @@ const Theme = {
 
     //$(`.theme figure[data-theme=${theme}]`);
     Array.from(this.$$figures)
-      .find($figure => $figure.dataset.theme === theme)
+      .find(($figure) => $figure.dataset.theme === theme)
       .classList.add("select");
 
     this.$transition.value = localStorage.transition || "slide";
     this.$align.value = localStorage.align || "center";
     this.$reveal.classList.add(this.$align.value);
-  }
+  },
 };
 
 const Print = {
   init() {
+    this.$arrowIcon = $(".control .icon-arrow");
     this.$download = $(".download");
-
     this.bind();
     this.start();
   },
@@ -283,19 +277,21 @@ const Print = {
     link.rel = "stylesheet";
     link.type = "text/css";
     if (window.location.search.match(/print-pdf/gi)) {
+      document.title = "打印页";
+      this.$arrowIcon.style.display = "none";
       link.href = "css/print/pdf.css";
       window.print();
     } else {
       ("css/print/paper.css");
     }
     document.head.appendChild(link);
-  }
+  },
 };
 
 const App = {
   init() {
-    [...arguments].forEach(Module => Module.init());
-  }
+    [...arguments].forEach((Module) => Module.init());
+  },
 };
 
 App.init(Menu, Editor, Theme, Print, ImgUploader);
