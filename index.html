@@ -43,6 +43,7 @@
 
 <body>
   <div class="menu">
+    <span class="iconfont icon-close"></span>
     <header class="header">控制台</header>
     <main class="main">
       <div class="zone edit">
@@ -53,19 +54,23 @@
         <div class="content">
           <div class="body editor">
             <textarea></textarea>
-            <div class="uploader">
-              <input type="file" id="img-uploader" accept="image/*" />
-              <label for="img-uploader">点击此处上传图片(支持.png、.jpg、.gif，最大2M)</label>
-            </div>
-            <div>
-              <button class="button-save">保存</button>
+            <div class="buttons">
+              <div class="uploader">
+                <input type="file" id="img-uploader" accept="image/*" />
+                <label for="img-uploader">点击此处上传图片(支持.png、.jpg、.gif，最大2M)</label>
+              </div>
+              <div>
+                <button class="button-save">保存</button>
+                <button class="download">保存为pdf</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="introduction">
-        <h3>欢迎使用 Miraculous PPT</h3>
+        <h3>欢迎使用</h3>
+        <h3>Miraculous PPT</h3>
         <ol>
           <li>"#" 表示1级标题</li>
           <li>"##" 表示2级标题</li>
@@ -77,10 +82,6 @@
           <li>编辑完成记得点击保存</li>
           <li class="strong">按下键盘 "S" 键进入演讲者模式</li>
         </ol>
-        <div class="buttons">
-          <button class="download">保存为pdf</button>
-          <span class="iconfont icon-close"></span>
-        </div>
       </div>
 
       <div class="zone theme">
@@ -89,73 +90,73 @@
           <span>主题与特效</span>
         </div>
         <div class="content">
-            <div class="selector">
-              <div class="transition">
-                <h5>转场</h5>
-                <select class="transition-item">
-                  <option value="slide">滑动</option>
-                  <option value="fade">淡化</option>
-                  <option value="convex">凸出</option>
-                  <option value="concave">凹陷</option>
-                  <option value="zoom">缩放</option>
-                  <option value="none">无</option>
-                </select>
-              </div>
-              <div class="align">
-                <h5>对齐</h5>
-                <select class="align-item">
-                  <option value="center">居中</option>
-                  <option value="left-top">左上</option>
-                </select>
-              </div>
+          <div class="selector">
+            <div class="transition">
+              <h5>转场</h5>
+              <select class="transition-item">
+                <option value="slide">滑动</option>
+                <option value="fade">淡化</option>
+                <option value="convex">凸出</option>
+                <option value="concave">凹陷</option>
+                <option value="zoom">缩放</option>
+                <option value="none">无</option>
+              </select>
             </div>
-            <div class="themes">
-              <figure data-theme="beige">
-                <figcaption>beige</figcaption>
-                <img src="./img/beige.png" alt="beige" />
-              </figure>
-              <figure data-theme="black">
-                <figcaption>black</figcaption>
-                <img src="./img/black.png" alt="black" />
-              </figure>
-              <figure data-theme="blood">
-                <figcaption>blood</figcaption>
-                <img src="./img/blood.png" alt="blood" />
-              </figure>
-              <figure data-theme="league">
-                <figcaption>league</figcaption>
-                <img src="./img/league.png" alt="league" />
-              </figure>
-              <figure data-theme="moon">
-                <figcaption>moon</figcaption>
-                <img src="./img/moon.png" alt="moon" />
-              </figure>
-              <figure data-theme="night">
-                <figcaption>night</figcaption>
-                <img src="./img/night.png" alt="night" />
-              </figure>
-              <figure data-theme="serif">
-                <figcaption>serif</figcaption>
-                <img src="./img/serif.png" alt="serif" />
-              </figure>
-              <figure data-theme="simple">
-                <figcaption>simple</figcaption>
-                <img src="./img/simple.png" alt="simple" />
-              </figure>
-              <figure data-theme="sky">
-                <figcaption>sky</figcaption>
-                <img src="./img/sky.png" alt="sky" />
-              </figure>
-              <figure data-theme="solarized">
-                <figcaption>solarized</figcaption>
-                <img src="./img/solarized.png" alt="solarized" />
-              </figure>
-              <figure data-theme="white">
-                <figcaption>white</figcaption>
-                <img src="./img/white.png" alt="white" />
-              </figure>
+            <div class="align">
+              <h5>对齐</h5>
+              <select class="align-item">
+                <option value="center">居中</option>
+                <option value="left-top">左上</option>
+              </select>
             </div>
           </div>
+          <div class="themes">
+            <figure data-theme="beige">
+              <figcaption>beige</figcaption>
+              <img src="./img/beige.png" alt="beige" />
+            </figure>
+            <figure data-theme="black">
+              <figcaption>black</figcaption>
+              <img src="./img/black.png" alt="black" />
+            </figure>
+            <figure data-theme="blood">
+              <figcaption>blood</figcaption>
+              <img src="./img/blood.png" alt="blood" />
+            </figure>
+            <figure data-theme="league">
+              <figcaption>league</figcaption>
+              <img src="./img/league.png" alt="league" />
+            </figure>
+            <figure data-theme="moon">
+              <figcaption>moon</figcaption>
+              <img src="./img/moon.png" alt="moon" />
+            </figure>
+            <figure data-theme="night">
+              <figcaption>night</figcaption>
+              <img src="./img/night.png" alt="night" />
+            </figure>
+            <figure data-theme="serif">
+              <figcaption>serif</figcaption>
+              <img src="./img/serif.png" alt="serif" />
+            </figure>
+            <figure data-theme="simple">
+              <figcaption>simple</figcaption>
+              <img src="./img/simple.png" alt="simple" />
+            </figure>
+            <figure data-theme="sky">
+              <figcaption>sky</figcaption>
+              <img src="./img/sky.png" alt="sky" />
+            </figure>
+            <figure data-theme="solarized">
+              <figcaption>solarized</figcaption>
+              <img src="./img/solarized.png" alt="solarized" />
+            </figure>
+            <figure data-theme="white">
+              <figcaption>white</figcaption>
+              <img src="./img/white.png" alt="white" />
+            </figure>
+          </div>
+        </div>
       </div>
 
     </main>

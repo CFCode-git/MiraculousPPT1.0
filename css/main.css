@@ -1,15 +1,13 @@
 * {
   box-sizing: border-box;
 }
-
-ul,
+ol,
 li {
-  padding: 16px;
+  padding: 4px 10px;
   font-size: 14px;
   color: #ccc;
   list-style: none;
 }
-
 button {
   background-color: #484141;
   padding: 4px 6px;
@@ -70,6 +68,7 @@ button {
   transform: translateY(-100%);
   transition: transform 0.3s;
   display: none;
+  padding: 16px;
 }
 
 .menu.open {
@@ -78,8 +77,7 @@ button {
 
 .menu header {
   border-bottom: 1px solid rgba(116, 124, 124, 0.5);
-  padding: 16px;
-  margin: 0 16px;
+  padding-bottom: 16px;
   text-align: center;
   font-size: 24px;
 }
@@ -89,17 +87,16 @@ button {
   flex-grow: 1;
   justify-content: space-between;
   padding: 16px 0;
-  margin: 0 16px;
+  min-height: 100%;
 }
 
 .menu main .zone {
   padding: 8px;
-  width: 40%;
 }
 
 .menu main .zone .header {
   font-size: 18px;
-  padding: 8px 0 8px 0;
+  padding: 8px 0;
   text-align: center;
 }
 
@@ -107,7 +104,7 @@ button {
 .menu main .edit {
   border-right: 1px solid rgba(116, 124, 124, 0.5);
   padding: 0 16px;
-  width: 50%;
+  min-width: 60%;
 }
 
 .menu main .edit .header .iconfont.icon-edit {
@@ -116,6 +113,25 @@ button {
 
 .menu main .edit .content .body.editor {
   padding: 10px auto;
+  position: relative;
+}
+
+.menu main .editor .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu main .buttons button {
+  font-size: 14px;
+  padding: 8px;
+  margin: 0 4px;
+  bottom: 20px;
 }
 
 .menu .editor [type="file"] {
@@ -135,22 +151,26 @@ button {
 }
 
 .menu main .edit textarea {
-  resize: none;
+  max-width: 100%;
   width: 100%;
-  height: 540px;
+  height: 500px;
   padding: 10px;
   background: #283231;
   color: #aaa;
   border: 1px solid #747c7c;
   outline: none;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 /* theme */
 .menu main .theme {
-  width: 30%;
+  max-width: 20%;
+  max-height: 100%;
   border-left: 1px solid rgba(116, 124, 124, 0.5);
   padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu main .theme .header .iconfont.icon-theme {
@@ -161,12 +181,16 @@ button {
   display: flex;
   padding: 10px auto;
   margin: 16px 0;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
 }
 
 .menu .main .theme .themes {
   width: 280px;
-  height: 580px;
+  height: 480px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   border: 1px solid #747c7c;
@@ -203,7 +227,7 @@ button {
 }
 
 .menu main .theme .content .selector {
-  padding: 16px;
+  padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,21 +249,25 @@ button {
 .menu main .introduction {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
   align-content: center;
+  padding: 0;
+  min-width: 20%;
 }
 
 .menu main .introduction h3 {
   font-size: 20px;
   color: #eee;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .menu main .introduction .strong {
   font-size: 16px;
   border-bottom: 1px solid;
   color: #babaae;
+  margin: 8px;
 }
 
 .menu main .introduction .buttons {
@@ -250,19 +278,133 @@ button {
   width: 100%;
 }
 
-.menu main .introduction .buttons button {
-  font-size: 14px;
-  padding: 8px;
-  margin-top: 40px;
-}
-
-.menu main .introduction .buttons .iconfont.icon-close {
+.menu .iconfont.icon-close {
   position: absolute;
-  bottom: 20px;
+  top: 10px;
+  right: 30px;
   font-size: 24px;
   cursor: pointer;
-  transition: color 0.3s;
   border: 2px solid #eee;
   border-radius: 50%;
   padding: 4px;
+}
+
+/*小于700*/
+@media (min-height: 600px) {
+  .menu main .edit textarea {
+    max-width: 100%;
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    background: #283231;
+    color: #aaa;
+    border: 1px solid #747c7c;
+    outline: none;
+    margin: 10px 0;
+  }
+  .menu .main .theme .themes {
+    width: 280px;
+    height: 450px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    border: 1px solid #747c7c;
+    padding: 0 4px;
+  }
+  ol,
+  li {
+    padding: 10px 10px;
+    font-size: 14px;
+    color: #ccc;
+    list-style: none;
+  }
+}
+
+/*小于700*/
+@media (min-height: 700px) {
+  .menu main .edit textarea {
+    max-width: 100%;
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    background: #283231;
+    color: #aaa;
+    border: 1px solid #747c7c;
+    outline: none;
+    margin: 10px 0;
+  }
+  .menu .main .theme .themes {
+    width: 280px;
+    height: 550px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    border: 1px solid #747c7c;
+    padding: 0 4px;
+  }
+  ol,
+  li {
+    padding: 10px 10px;
+    font-size: 14px;
+    color: #ccc;
+    list-style: none;
+  }
+}
+
+/*小于800*/
+@media (min-height: 800px) {
+  .menu main .edit textarea {
+    max-width: 100%;
+    width: 100%;
+    height: 600px;
+    padding: 10px;
+    background: #283231;
+    color: #aaa;
+    border: 1px solid #747c7c;
+    outline: none;
+    margin: 10px 0;
+  }
+  .menu .main .theme .themes {
+    width: 280px;
+    height: 650px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    border: 1px solid #747c7c;
+    padding: 0 4px;
+  }
+  ol,
+  li {
+    padding: 16px 10px;
+    font-size: 14px;
+    color: #ccc;
+    list-style: none;
+  }
+}
+
+/*小于1000*/
+@media (min-height: 1000px) {
+  .menu main .edit textarea {
+    max-width: 100%;
+    width: 100%;
+    height: 850px;
+    padding: 10px;
+    background: #283231;
+    color: #aaa;
+    border: 1px solid #747c7c;
+    outline: none;
+    margin: 10px 0;
+  }
+  .menu .main .theme .themes {
+    width: 280px;
+    height: 850px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    border: 1px solid #747c7c;
+    padding: 0 4px;
+  }
+  ol,
+  li {
+    padding: 16px 10px;
+    font-size: 14px;
+    color: #ccc;
+    list-style: none;
+  }
 }
